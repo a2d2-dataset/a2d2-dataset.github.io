@@ -3,17 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A2D2 Dataset</title>
+  <title>A2D2: Audi Autonomous Driving Dataset</title>
   <style>
-    body { font-family: sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem; color: #222; }
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; }
-    .subtitle { color: #666; margin-bottom: 2rem; }
-    a { color: #0066cc; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
+    header .subtitle { margin-top: 0.5rem; color: #aac; font-size: 1.05rem; }
+    header .badges { margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    header .badges a {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    header .badges a:hover { opacity: 0.85; }
+    .badge-arxiv { background: #b31b1b; color: #fff; }
+    .badge-aws   { background: #ff9900; color: #000; }
+    .badge-cc    { background: #2e7d32; color: #fff; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem; }
+
+    section { margin-bottom: 2.5rem; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    p { margin-bottom: 0.75rem; color: #333; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .stat {
+      background: #f4f6fb;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat .number { font-size: 1.6rem; font-weight: 700; color: #1a1a2e; }
+    .stat .label  { font-size: 0.8rem; color: #666; margin-top: 0.2rem; }
+
+    .authors { color: #444; font-size: 0.95rem; }
+
+    code {
+      background: #f0f0f0;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      font-family: monospace;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.88rem;
+      font-family: monospace;
+      margin: 0.75rem 0;
+    }
+
+    .cite-block {
+      background: #f9f9f9;
+      border-left: 4px solid #1a1a2e;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+      border-radius: 0 6px 6px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid #eee;
+    }
   </style>
 </head>
 <body>
-  <h1>A2D2 Dataset</h1>
-  <p class="subtitle">Coming soon.</p>
+
+<header>
+  <h1>A2D2: Audi Autonomous Driving Dataset</h1>
+  <p class="subtitle">An open multi-sensor dataset for autonomous driving research</p>
+  <div class="badges">
+    <a class="badge-arxiv" href="https://arxiv.org/abs/2004.06320" target="_blank">📄 arXiv 2004.06320</a>
+    <a class="badge-aws"   href="https://registry.opendata.aws/aev-a2d2/" target="_blank">☁️ AWS Open Data</a>
+    <a class="badge-cc"    href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank">CC BY-ND 4.0</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Abstract</h2>
+    <p>
+      Research in machine learning, mobile robotics, and autonomous driving is accelerated by the
+      availability of high quality annotated data. To this end, we release the Audi Autonomous Driving
+      Dataset (A2D2). Our dataset consists of simultaneously recorded images and 3D point clouds,
+      together with 3D bounding boxes, semantic segmentation, instance segmentation, and data extracted
+      from the automotive bus.
+    </p>
+    <p>
+      Our sensor suite consists of six cameras and five LiDAR units, providing full 360° coverage.
+      The recorded data is time synchronized and mutually registered. Faces and vehicle number plates
+      are blurred due to GDPR legislation. A2D2 is made available under the
+      <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a> license,
+      permitting commercial use subject to the terms of the license.
+    </p>
+  </section>
+
+  <section>
+    <h2>Dataset Statistics</h2>
+    <div class="stats">
+      <div class="stat"><div class="number">41,277</div><div class="label">Annotated frames</div></div>
+      <div class="stat"><div class="number">12,497</div><div class="label">Frames with 3D bounding boxes</div></div>
+      <div class="stat"><div class="number">392,556</div><div class="label">Unlabelled sequential frames</div></div>
+      <div class="stat"><div class="number">6</div><div class="label">Cameras</div></div>
+      <div class="stat"><div class="number">5</div><div class="label">LiDAR units</div></div>
+      <div class="stat"><div class="number">360°</div><div class="label">Sensor coverage</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Data Access</h2>
+    <p>The dataset is hosted on AWS S3 and is freely accessible without an AWS account:</p>
+    <pre>aws s3 ls --no-sign-request s3://aev-autonomous-driving-dataset/</pre>
+    <p>
+      AWS Region: <code>eu-central-1</code> &nbsp;·&nbsp;
+      ARN: <code>arn:aws:s3:::aev-autonomous-driving-dataset</code>
+    </p>
+    <p>
+      Full documentation and download instructions:
+      <a href="https://registry.opendata.aws/aev-a2d2/" target="_blank">AWS Open Data Registry</a> ·
+      <a href="http://a2d2.audi" target="_blank">a2d2.audi</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Authors</h2>
+    <p class="authors">
+      Jakob Geyer, Yohannes Kassahun, Mentar Mahmudi, Xavier Ricou, Rupesh Durgesh,
+      Andrew S. Chung, Lorenz Hauswald, Viet Hoang Pham, Maximilian Mühlegg, Sebastian Dorn,
+      Tiffany Fernandez, Martin Jänicke, Sudesh Mirashi, Chiragkumar Savani, Martin Sturm,
+      Oleksandr Vorobiov, Martin Oelker, Sebastian Garreis, Peter Schuberth
+    </p>
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <div class="cite-block">@article{geyer2020a2d2,
+  title   = {A2D2: Audi Autonomous Driving Dataset},
+  author  = {Geyer, Jakob and Kassahun, Yohannes and Mahmudi, Mentar and
+             Ricou, Xavier and Durgesh, Rupesh and Chung, Andrew S. and
+             Hauswald, Lorenz and Pham, Viet Hoang and M{\"u}hlegg, Maximilian and
+             Dorn, Sebastian and Fernandez, Tiffany and J{\"a}nicke, Martin and
+             Mirashi, Sudesh and Savani, Chiragkumar and Sturm, Martin and
+             Vorobiov, Oleksandr and Oelker, Martin and Garreis, Sebastian and
+             Schuberth, Peter},
+  journal = {arXiv preprint arXiv:2004.06320},
+  year    = {2020}
+}</div>
+  </section>
+
+</main>
+
+<footer>
+  A2D2 Dataset · Audi AG · <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>
+</footer>
+
 </body>
 </html>
