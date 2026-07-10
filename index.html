@@ -180,7 +180,21 @@
 
   <section>
     <h2>Data Access</h2>
-    <p>The dataset is hosted on AWS S3 and is freely accessible without an AWS account:</p>
+    <p>The dataset is hosted on AWS S3 and is freely accessible without an AWS account.</p>
+
+    <h3>Extracted dataset (recommended)</h3>
+    <p>
+      All files individually accessible in the canonical directory layout &mdash; browse sequences,
+      download single files or subsets, no huge archives to unpack. Integrity of every file can be
+      verified against the included <code>CHECKSUMS.txt</code>.
+    </p>
+    <pre>aws s3 ls --no-sign-request s3://audi-autonomous-driving-dataset/</pre>
+    <p>
+      AWS Region: <code>eu-central-1</code> &nbsp;·&nbsp;
+      ARN: <code>arn:aws:s3:::audi-autonomous-driving-dataset</code>
+    </p>
+    <h3>Original tar archives</h3>
+    <p>The original distribution as monolithic tar archives:</p>
     <pre>aws s3 ls --no-sign-request s3://aev-autonomous-driving-dataset/</pre>
     <p>
       AWS Region: <code>eu-central-1</code> &nbsp;·&nbsp;
